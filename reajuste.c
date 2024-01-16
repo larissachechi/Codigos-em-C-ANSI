@@ -9,7 +9,7 @@
 //salário. 
 
 #include <stdio.h>
-#define MAX 2
+#define MAX 10
 typedef struct {
     int codigo;
     int pendentes;
