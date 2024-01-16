@@ -1,3 +1,13 @@
+//O reajuste do salário deve ser calculado pelo programa, da seguinte forma:
+//* Se o funcionário tem menos de 2 dependentes, ele recebe reajuste de
+//3% do salário.
+//* Se ele tem entre 2 e 5 e tiver salário menor que o valor de referência,
+//sele recebe um reajuste de 10% do salário.
+//* Se ele tem entre 2 e 5 e tiver salário maior que o valor de referência,
+//sele recebe um reajuste de 5% do salário.
+//* Se ele tem mais de 5 dependentes, ele recebe reajuste de 15% do
+//salário. 
+
 #include <stdio.h>
 #define MAX 2
 typedef struct {
@@ -31,7 +41,7 @@ void reajuste(FUNCIONARIO vetor[], float referencia) {
     float salario_antigo;
 
     for (i = 0; i < MAX; i++) {
-        salario_antigo = vetor[i].salario;  // Salva o sal�rio atual
+        salario_antigo = vetor[i].salario;  // Salva o salário atual
 
         if (vetor[i].pendentes <= 2) {
             novo_salario = ((3.0 / 100) * salario_antigo) + salario_antigo;
