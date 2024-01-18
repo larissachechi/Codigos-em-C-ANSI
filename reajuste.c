@@ -6,9 +6,10 @@
 //* Se ele tem entre 2 e 5 e tiver salário maior que o valor de referência,
 //sele recebe um reajuste de 5% do salário.
 //* Se ele tem mais de 5 dependentes, ele recebe reajuste de 15% do
-//salário. 
+//salário.
 
 #include <stdio.h>
+#include <locale.h>
 #define MAX 10
 typedef struct {
     int codigo;
@@ -19,15 +20,16 @@ typedef struct {
 void reajuste(FUNCIONARIO vetor[], float referencia);
 
 int main() {
+    setlocale(LC_ALL, "Portuguese");
     FUNCIONARIO vetor[MAX];
     float referencia;
     int i;
 
-    printf("Informe um valor de referencia salarial:");
+    printf("Informe um valor de referência salarial:");
     scanf("%f", &referencia);
 
     for (i = 0; i < MAX; i++) {
-        printf("Informe o codigo, salario e dependentes do funcionario %d:", i + 1);
+        printf("Informe o código, salário e dependentes do funcionário %d:", i + 1);
         scanf("%d %f %d", &vetor[i].codigo, &vetor[i].salario, &vetor[i].dependentes);
     }
     reajuste(vetor, referencia);
@@ -53,7 +55,7 @@ void reajuste(FUNCIONARIO vetor[], float referencia) {
             novo_salario = ((15.0 / 100) * salario_antigo) + salario_antigo;
         }
 
-        printf("Funcionario %d tem %d dependentes e seu antigo salario era: %.2f \n foi reajustado para: %2.3f\n", i + 1, vetor[i].dependentes, salario_antigo, novo_salario);
+        printf("Funcionário %d tem %d dependentes e seu antigo salário era: %.2f \n foi reajustado para: %2.3f\n", i + 1, vetor[i].dependentes, salario_antigo, novo_salario);
 
     }
 }
