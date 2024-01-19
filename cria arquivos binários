@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Função para criar e preencher o primeiro arquivo binário
+void criarArquivo1(const char *nomeArquivo) {
+    FILE *arquivo;
+
+    // Abrir o arquivo para escrita binária
+    arquivo = fopen(nomeArquivo, "wb");
+
+    if (arquivo == NULL) {
+        fprintf(stderr, "Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    // Dados a serem escritos no arquivo
+    int numeros1[] = {10, 20, 30, 40, 50};
+    size_t tamanho = sizeof(numeros1) / sizeof(numeros1[0]);
+
+    // Escrever os dados no arquivo
+    fwrite(numeros1, sizeof(int), tamanho, arquivo);
+
+    // Fechar o arquivo
+    fclose(arquivo);
+
+    printf("Dados foram gravados no arquivo %s com sucesso.\n", nomeArquivo);
+}
+
+// Função para criar e preencher o segundo arquivo binário
+void criarArquivo2(const char *nomeArquivo) {
+    FILE *arquivo;
+
+    // Abrir o arquivo para escrita binária
+    arquivo = fopen(nomeArquivo, "wb");
+
+    if (arquivo == NULL) {
+        fprintf(stderr, "Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    // Dados a serem escritos no arquivo
+    float numeros2[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    size_t tamanho = sizeof(numeros2) / sizeof(numeros2[0]);
+
+    // Escrever os dados no arquivo
+    fwrite(numeros2, sizeof(float), tamanho, arquivo);
+
+    // Fechar o arquivo
+    fclose(arquivo);
+
+    printf("Dados foram gravados no arquivo %s com sucesso.\n", nomeArquivo);
+}
+
+int main() {
+    criarArquivo1("dados1.bin");
+    criarArquivo2("dados2.bin");
+
+    return 0;
+}
