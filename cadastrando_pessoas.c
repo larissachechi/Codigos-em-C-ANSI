@@ -1,4 +1,4 @@
-//GUARDANDO IDENTIFICA«√O DE PESSOAS
+//GUARDANDO IDENTIFICA√á√ÉO DE PESSOAS
 #include <stdio.h>
 #define MAX 3
 #define NOME 30
